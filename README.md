@@ -1,3 +1,3 @@
 # Lab 6 - Starter
-Jennifer Jiang
+Jennifer Jiang <br>
 Link to GitHub Pages: https://jennifer-jiang.github.io/CSE110-lab6/index.html
