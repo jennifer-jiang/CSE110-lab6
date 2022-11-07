@@ -12,7 +12,7 @@ class RecipeCard extends HTMLElement {
     // A2. TODO - Create an <article> element - This will hold our markup once our data is set
     const article = document.createElement("article");
     // A3. TODO - Create a style element - This will hold all of the styles for the Web Component
-    let style = document.createElement("style");
+    const style = document.createElement("style");
     // A4. TODO - Insert all of the styles from cardTemplate.html into the <style> element you just made
     style.textContent = `
     * {
@@ -91,8 +91,8 @@ class RecipeCard extends HTMLElement {
       font-size: 12px;
     }`;
     // A5. TODO - Append the <style> and <article> elements to the Shadow DOM
-    shadow.append(article);
-    shadow.append(style);
+    shadow.appendChild(article);
+    shadow.appendChild(style);
   }
 
   /**
@@ -126,45 +126,16 @@ class RecipeCard extends HTMLElement {
     //           cardTemplate.html and the data passed in (You should only have one <article>,
     //           do not nest an <article> inside another <article>). You should use Template
     //           literals (tempalte strings) and element.innerHTML for this.
-    const rating = data.rating;
-    let ratingImg;
-    let ratingAlt;
-    switch (rating) {
-      case '0':
-        ratingImg = "assets/images/icons/0-star.svg";
-        ratingAlt = "0 stars";
-        break;
-      case '1':
-        ratingImg = "assets/images/icons/1-star.svg";
-        ratingAlt = "1 stars";
-        break;
-      case '2':
-        ratingImg = "assets/images/icons/2-star.svg";
-        ratingAlt = "2 stars";
-        break;
-      case '3':
-        ratingImg = "assets/images/icons/3-star.svg";
-        ratingAlt = "3 stars";
-        break;
-      case '4':
-        ratingImg = "assets/images/icons/4-star.svg";
-        ratingAlt = "4 stars";
-        break;
-      default:
-        ratingImg = "assets/images/icons/5-star.svg";
-        ratingAlt = "5 stars";
-        break;
-    }
 
     articleEl.innerHTML = `
-    <img src="${data.imgSrc}" alt=${data.imgAlt}>
+    <img src="${data.imgSrc}" alt="${data.imgAlt}">
     <p class="title">
       <a href="${data.titleLnk}">${data.titleTxt}</a>
     </p>
     <p class="organization">${data.organization}</p>
     <div class="rating">
       <span>${data.rating}</span>
-      <img src="${ratingImg}" alt=${ratingAlt}>
+      <img src="/assets/images/icons/${data.rating}-star.svg" alt="${data.rating} stars">
       <span>(${data.numRatings})</span>
     </div>
     <time>${data.lengthTime}</time>
