@@ -105,7 +105,7 @@ function initFormHandler() {
     let newRecipe = document.createElement('recipe-card');
     newRecipe.data = recipeObject;
     const main = document.querySelector("main");
-    main.appendChild(recipeObject);
+    main.appendChild(newRecipe);
 
     let recipeArr = getRecipesFromStorage();
     recipeArr.push(recipeObject);
